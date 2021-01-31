@@ -1,14 +1,13 @@
 import './App.css';
 import "bootstrap/dist/css/bootstrap.css";
 import "../src/global.css";
-//import BadgeNew from '../src/pages/BadgeNew';
-import Badges from '../src/pages/Badges';
+import Apps from './components/Apps';
 
 
 function App() {
   return (
     <div className="App">
-      <Badges />
+      <Apps />
     </div>
   );
 }
