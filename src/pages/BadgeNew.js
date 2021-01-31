@@ -8,7 +8,14 @@ import BadgeForm from "../components/BadgeForm";
 
 class BadgeNew extends React.Component {
 
-    state = { form: {} };
+    state = { form: {
+        firstName: '',
+        lastName: '',
+        Email: '',
+        jobtTitle: '',
+        Twitter: '',
+
+    } };
 
     handleChange = e => {
 
@@ -32,14 +39,17 @@ class BadgeNew extends React.Component {
                         <div className="col-6">
                             <Badge 
                                 avatarUrl="https://es.gravatar.com/avatar?d=identicon" 
-                                firstName="Harold" 
-                                lastName="Jara" 
-                                jobtTitle="FrontEnd Enginieer" 
-                                twitter="hjara"
+                                firstName={this.state.form.firstName}
+                                lastName={this.state.form.lastName}
+                                jobtTitle={this.state.form.JobTittle}
+                                twitter={this.state.form.Twitter}
                             />
                         </div>
                         <div className="col-6">
-                            <BadgeForm onChange={this.handleChange}/>
+                            <BadgeForm 
+                                onChange={this.handleChange} 
+                                formValues={this.state.form}
+                            />
                         </div>
                     </div>
                 </div>

@@ -23,10 +23,11 @@ class BadgeForm extends React.Component{
             )
     }*/
 
+    //Servicio para que no se actialice la página
     handleSubmit = e =>{
         e.preventDefault();
         console.log("Form was submitted");
-        console.log(this.state);
+        console.log(this.props.formValues);
     }
 
     render(){
@@ -42,7 +43,8 @@ class BadgeForm extends React.Component{
                             tyoe="text" 
                             name="firstName"
                             //Evista que se duplique la info y lea el estado de cada variable
-                            value={this.state.firstName}/>
+                            value={this.props.formValues.firstName}
+                        />
                     </div>
 
                     <div className="form-group">
@@ -53,7 +55,7 @@ class BadgeForm extends React.Component{
                             tyoe="text" 
                             name="lastName"
                             //Evista que se duplique la info y lea el estado de cada variable
-                            value={this.state.lastName}/>
+                            value={this.props.formValues.lastName}/>
                     </div>
 
                     <div className="form-group">
@@ -64,7 +66,7 @@ class BadgeForm extends React.Component{
                             tyoe="text" 
                             name="Email"
                             //Evista que se duplique la info y lea el estado de cada variable
-                            value={this.state.Email}/>
+                            value={this.props.formValues.Email}/>
                     </div>
 
                     <div className="form-group">
@@ -75,7 +77,7 @@ class BadgeForm extends React.Component{
                             tyoe="text" 
                             name="JobTittle"
                             //Evista que se duplique la info y lea el estado de cada variable
-                            value={this.state.JobTittle}/>
+                            value={this.props.formValues.JobTittle}/>
                     </div>
 
                     <div className="form-group">
@@ -86,7 +88,7 @@ class BadgeForm extends React.Component{
                             tyoe="text" 
                             name="Twitter"
                             //Evista que se duplique la info y lea el estado de cada variable
-                            value={this.state.Twitter}/>
+                            value={this.props.formValues.Twitter}/>
                     </div>
 
                     <button  onClick={this.handleClick} className="btn btn-primary">
