@@ -21,28 +21,28 @@ class BadgeForm extends React.Component{
         console.log(
                 "Button was clicked"
             )
-    }*/
+    }
 
     //Servicio para que no se actialice la página
     handleSubmit = e =>{
         e.preventDefault();
         console.log("Form was submitted");
         console.log(this.props.formValues);
-    }
+    }*/
 
     render(){
         return(
             <div>
                 <h1>New Attendant</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.props.onSubmit}>
                     <div className="form-group">
                         <label> First Name</label>
                         <input 
                             onChange={this.props.onChange} 
                             className="form-control" 
-                            tyoe="text" 
+                            type="text" 
                             name="firstName"
-                            //Evista que se duplique la info y lea el estado de cada variable
+                            //Evita que se duplique la info y lea el estado de cada variable
                             value={this.props.formValues.firstName}
                         />
                     </div>
@@ -52,7 +52,7 @@ class BadgeForm extends React.Component{
                         <input 
                             onChange={this.props.onChange} 
                             className="form-control" 
-                            tyoe="text" 
+                            type="text" 
                             name="lastName"
                             //Evista que se duplique la info y lea el estado de cada variable
                             value={this.props.formValues.lastName}/>
@@ -63,7 +63,7 @@ class BadgeForm extends React.Component{
                         <input 
                             onChange={this.props.onChange} 
                             className="form-control" 
-                            tyoe="text" 
+                            type="text" 
                             name="Email"
                             //Evista que se duplique la info y lea el estado de cada variable
                             value={this.props.formValues.Email}/>
@@ -74,7 +74,7 @@ class BadgeForm extends React.Component{
                         <input 
                             onChange={this.props.onChange} 
                             className="form-control" 
-                            tyoe="text" 
+                            type="text" 
                             name="JobTittle"
                             //Evista que se duplique la info y lea el estado de cada variable
                             value={this.props.formValues.JobTittle}/>
@@ -85,7 +85,7 @@ class BadgeForm extends React.Component{
                         <input 
                             onChange={this.props.onChange} 
                             className="form-control" 
-                            tyoe="text" 
+                            type="text" 
                             name="Twitter"
                             //Evista que se duplique la info y lea el estado de cada variable
                             value={this.props.formValues.Twitter}/>
@@ -94,6 +94,9 @@ class BadgeForm extends React.Component{
                     <button  onClick={this.handleClick} className="btn btn-primary">
                         Save
                     </button>
+                
+                    {this.props.error && (<p className="text-danger">{this.props.error.message}</p>)}
+
                 </form>
             </div>
         );
