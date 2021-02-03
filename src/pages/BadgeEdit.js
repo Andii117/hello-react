@@ -10,7 +10,7 @@ import PageLoading from '../components/PageLoading';
 class BadgeEdit extends React.Component {
 
     state = { 
-        loading: false,
+        loading: true,
         error: null,
         form: {
             firstName: '',
@@ -20,6 +20,24 @@ class BadgeEdit extends React.Component {
             Twitter: '',
 
     } };
+
+    componentDidMount(){
+        this.fetchData();
+    }
+
+    fetchData = async e =>{
+        this.setState({loading: true, error: null})
+
+        try {
+            const data = await api.badges.read(
+                this.props.match.params.badgeId
+            )
+
+            this.setState({loading: false, form: data});
+        } catch (error) {
+            this.setState({loading: false, error: error});
+        }
+    }
 
     handleChange = e => {
 
@@ -37,8 +55,8 @@ class BadgeEdit extends React.Component {
         this.setState({ loading: true, error: null})
 
         try {
-            //Almacena la información utilizando el API create
-            await api.badges.create(this.state.form)
+            //Actualizamos la información utilizando el API create
+            await api.badges.update(this.props.match.params.badgeId, this.state.form);
             this.setState({ loading: false, error: null})
             //Porps proporcionado por react routes para redirigir una pagina
             this.props.history.push('/badges');
@@ -68,6 +86,7 @@ class BadgeEdit extends React.Component {
                             />
                         </div>
                         <div className="col-6">
+                            <h1>Edit Attendant</h1>
                             <BadgeForm 
                                 onChange={this.handleChange} 
                                 onSubmit={this.handleSubmit}
