@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Badge from '../components/Badge';
 import ConfLogo from '../images/platziconf-logo.svg';
 import { Link } from 'react-router-dom';
@@ -8,6 +9,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 import $ from 'jquery';
 import Popper from 'popper.js';
+import  DeleteBadgeModal  from '../components/DeleteBadgeModal';
 
 function BadgeDetails (props){
 
@@ -50,9 +52,19 @@ function BadgeDetails (props){
                             <div>
                                 
                                 <div>
-                                    <button className="btn btn-danger">
+                                    <button onClik={props.onOpenModal} className="btn btn-danger">
                                         Delete
-                                    </button></div>
+                                    </button>
+
+                                    <DeleteBadgeModal 
+                                        isOpen={props.modalIsOpen} 
+                                        onClose={props.onCloseModal}
+                                        onDeleteBadge={props.onDeleteBadge}
+                                    > 
+                                        Lorem Ipsum 
+                                    </DeleteBadgeModal>
+                                       
+                                </div>
                             </div>
 
                         </div>
