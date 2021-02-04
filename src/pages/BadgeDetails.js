@@ -11,8 +11,18 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import  DeleteBadgeModal  from '../components/DeleteBadgeModal';
 
+function useIncreaseCounte(max){
+    const [count, setCount ]= React.useState(0);
+    if(count > max){
+        setCount(0)
+    }
+
+    return [count , setCount];
+}
+
 function BadgeDetails (props){
 
+    const [ count, setCount ] = useIncreaseCounte(10);
     const badge = props.badge;
 
     return(
@@ -45,9 +55,15 @@ function BadgeDetails (props){
                             <div>
                                 
                                 <div>
+                                    <button onClick={()=>{ 
+                                        setCount(count + 1)
+                                     }} className="btn btn-primary mr-4">
+                                        Increase Count: {count}
+                                    </button>
                                     <Link className="btn btn-primary mb-4" to={`/badges/${badge.id}/edit`} >
                                         Edit
-                                    </Link></div>
+                                    </Link>
+                                </div>
                             </div>
                             <div>
                                 
