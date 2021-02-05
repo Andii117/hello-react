@@ -26,10 +26,12 @@ class BadgesListItem extends React.Component {
   }
 }
 
+//Custom hook siempre empieza con use
 function useSearchBadges(badges) {
   const [query, setQuery] = React.useState('');
   const [filteredBadges, setFilteredBadges] = React.useState(badges);
 
+  //Uso de "cache"
   React.useMemo(() => {
     const result = badges.filter(badge => {
       return `${badge.firstName} ${badge.lastName}`
