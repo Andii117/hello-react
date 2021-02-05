@@ -1,12 +1,9 @@
 .BadgesList ul>li {
   margin-bottom: 1rem;
-  margin-left: 1rem;
-  margin-top: 1rem;
-  margin-top: 1rem;
 }
 
 .BadgesListItem {
-  background: #5dc1b9;
+  background: #FFFFFF;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.23);
   border-radius: 5px;
   display: flex;

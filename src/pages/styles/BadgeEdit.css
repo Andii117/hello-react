@@ -4,7 +4,10 @@
   background: url('../../images/stars.svg'), #1B1B25;
   background-repeat: repeat;
   margin-bottom: 1rem;
-  color: #ffffff; 
+  color: #ffffff;
+
+  display: flex;
+  justify-content: center;
 }
 
 .BadgeEdit__hero-image {
